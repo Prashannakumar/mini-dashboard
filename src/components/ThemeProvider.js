@@ -6,7 +6,7 @@ export const ThemeContext = createContext();
 function ThemeProvider({ children }) {
     const [theme, setTheme] = useState("light");
 
-    // Save and liad theme from localStorage
+    // Save and load theme from localStorage
     useEffect(() => {
         const saved = localStorage.getItem("theme");
         if(saved){
@@ -14,6 +14,7 @@ function ThemeProvider({ children }) {
         }
     }, []);
 
+    // Save to localStorage whenever theme changes
     useEffect(() => {
         localStorage.setItem("theme", theme);
     }, [theme]);
@@ -26,12 +27,13 @@ function ThemeProvider({ children }) {
     // Provide theme + toggle to all children
     return (
         <ThemeContext.Provider value={{theme, toggleTheme}}>
-            <div
+            {/* <div
             style={{
                 background: theme === "light" ? "#fff" : "#222",
                 color: theme === "light" ? "#000" : "#fff",
                 minHeight: "100vh"
-            }}>
+            }}> */}
+            <div className={theme === "light" ? "light-theme" : "dark-theme"}>
                 {children}
             </div>
         </ThemeContext.Provider>
