@@ -1,24 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import ThemeProvider from './components/ThemeProvider';
+import ThemeSwitcher from './components/ThemeSwitcher';
+import Counter from './components/Counter';
+import TodoList from './components/TodoList';
+import Clock from './components/Clock';
+import BoxMeasure from './components/BoxMeasure';
+import DeferredSearch from './components/DeferredSearch';
+import TodoListReducer from './components/TodoListReducer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <div style={{ padding: "20px" }}>
+        <h1>Mini Productivity Dashboard</h1>
+        <ThemeSwitcher />
+        <Counter />
+        <TodoList />
+        <Clock />
+        <TodoListReducer />
+        <BoxMeasure />
+        <DeferredSearch />
+      </div>
+    </ThemeProvider>
   );
 }
 
